@@ -1,2 +1,4 @@
 build/exe.win-amd64-3.6
 build/zeiss_converter
+.vscode
+__pycache__
