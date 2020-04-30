@@ -10,7 +10,7 @@ La coversion d'un fichier se fait en 4 étapes
 - L'enregistrer à l'emplacement souhaité
 
 # Avancement
-- :white_check_mark: Conversion P16+ → Mountains  
+- [:white_check_mark:] Conversion P16+ → Mountains  
 - [ ] Conversion Zeiss → Mountains ne peut être réalisé faute de fichier Zeiss sous la main
 
 # Installation
