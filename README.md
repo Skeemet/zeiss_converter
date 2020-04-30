@@ -14,7 +14,7 @@ La coversion d'un fichier se fait en 4 étapes
 - [ ] Conversion Zeiss → Mountains ne peut être réalisé faute de fichier Zeiss sous la main
 
 # Installation
-1. Téléchargez le fichier qui se trouve [ici :link:]() (120Mo)
+1. Téléchargez le fichier qui se trouve [ici :link:](https://drive.google.com/open?id=1W65NwZWAZYYdjN2KyBp2cihmo74MrA8u) (120Mo)
 2. Décompresser le dossier et déplacer **l'intégralité** de son contenu dans le dossier de votre convenance. Vous devriez obtenir une situation similaire à celle-ci 
 ![arborescence type](/image/tuto_git/install_1.png)
 3. Lancer `zeiss_converter.exe`
