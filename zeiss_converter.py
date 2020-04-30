@@ -290,7 +290,12 @@ class External(QThread):
                 self.count += 100/nb_points
                 self.countChanged.emit(self.count)
 
+        self.count -= 100/nb_points
+        self.countChanged.emit(self.count)
+
         file_export.close()
+        self.count += 100/nb_points
+        self.countChanged.emit(self.count)
 
         # create a 3D plot is too heavy with big files
         #fig = plt.figure()
