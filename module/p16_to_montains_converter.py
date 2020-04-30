@@ -3,11 +3,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import cm
 
-file_import = open('ME-SSEP1-270-sensperpendiculaire.txt', 'r')
+import sys
+
+sys.path.append('/module')
+
+# NiW2DDCL2
+# ME-SSEP1-270-sensperpendiculaire
+file_import = open('module/NiW2DDCL2.txt', 'r')
 lignes = file_import.readlines()
 file_import.close()
 
-file_export = open('EXPORT_NiW2DDCL2.txt', 'w')
+file_export = open('module/EXPORT_NiW2DDCL2.txt', 'w')
 
 # repr is used to visualise specials caracters
 #print(repr(file.readlines()[15]))
@@ -21,24 +27,29 @@ for i in range(11):
     elif line_l[0] == 'Number of Traces':
         nb_traces = int(line_l[1])
     elif line_l[0] == 'X-Resolution':
-        x_res = int(float(line_l[1]))
+        x_res = float(line_l[1])
     elif line_l[0] == 'Y-Resolution':
-        y_res = int(float(line_l[1]))
+        y_res = float(line_l[1])
 
+
+print("X-res= ", x_res)
+print("Y-res= ", y_res)
 l_x_plot = []
 l_y_plot = []
 l_z_plot = []
 
-for i in range(nb_points):
+for i in range(4): # nb_points
     #print(i, '=>', lignes[11+i])
     ligne = lignes[11+i].split('\t')[1::] # delete first number which is line number
     for j, point in enumerate(ligne):
-        #print('point', point)
+        print('point', point)
         X = x_res*i
         Y = y_res*j
         Z = float(point) # TODO conversion amstrum->micron
         new_line = str(X) + ',' + str(Y) + ',' + str(Z) + '\n'
 
+        print(i, j, Z)
+        print("line= ", new_line)
         file_export.write(new_line) #write new line
         l_x_plot.append(X)
         l_y_plot.append(Y)
