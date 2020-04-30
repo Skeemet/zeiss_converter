@@ -198,8 +198,10 @@ class Ecran_menuPrincipal(QtWidgets.QMainWindow):
             if fileName.split('.')[-1] != ('txt'): fileName += '.txt'
             shutil.move(os.getcwd()+'/temp.txt', fileName)
             self.ui.label_3.setText(fileName)
-            fileName = fileName[:-3] + 'png'
-            shutil.move(os.getcwd() + '/profile.png', fileName)
+
+            # here is the picture generated
+            #fileName = fileName[:-3] + 'png'
+            #shutil.move(os.getcwd() + '/profile.png', fileName)
 
 
 
@@ -266,9 +268,9 @@ class External(QThread):
             elif line_l[0] == 'Number of Traces':
                 nb_traces = int(line_l[1])
             elif line_l[0] == 'X-Resolution':
-                x_res = int(float(line_l[1]))
+                x_res = float(line_l[1])
             elif line_l[0] == 'Y-Resolution':
-                y_res = int(float(line_l[1]))
+                y_res = float(line_l[1])
 
         for i in range(nb_points):
             # print(i, '=>', lignes[11+i])
@@ -290,13 +292,14 @@ class External(QThread):
 
         file_export.close()
 
-        fig = plt.figure()
-        ax = fig.gca(projection='3d')
+        # create a 3D plot is too heavy with big files
+        #fig = plt.figure()
+        #ax = fig.gca(projection='3d')
 
-        ax.plot_trisurf(np.array(l_x_plot), np.array(l_y_plot), np.array(l_z_plot), cmap=cm.coolwarm, linewidth=0.2,
-                        antialiased=True)
+        #ax.plot_trisurf(np.array(l_x_plot), np.array(l_y_plot), np.array(l_z_plot), cmap=cm.coolwarm, linewidth=0.2,
+        #                antialiased=True)
 
-        plt.savefig('profile.png')
+        #plt.savefig('profile.png')
 
 
 
